@@ -52,7 +52,7 @@
 #         self.author = author
 #         self.num_page = num_page
 #
-#     def open(self,page):
+#     def open(self,page:int):
 #         if page <= self.num_page:
 #             print(f'Страница {page} открыта')
 #         else:
@@ -93,67 +93,124 @@
 #         print('Нормально вводи')
 # ================================================================================================
 #Task_3
-class PassengerPlane():
-    def __init__(self, manufacturer, model, capacity,height=0,speed=0):
-        self.manufacturer = manufacturer
-        self.model = model
-        self.capacity = capacity
-        self.height = height
-        self.speed = speed
+# class PassengerPlane():
+#     def __init__(self, manufacturer, model, capacity,height=0,speed=0):
+#         self.manufacturer = manufacturer
+#         self.model = model
+#         self.capacity = capacity
+#         self.height = height
+#         self.speed = speed
+#
+#     def info(self):
+#         print(f"""
+#                 Производитель: {self.manufacturer}
+#                 Модель самолета: {self.model}
+#                 Вместимость самолета: {self.capacity}
+#         """)
+#
+#     def takeoff(self):
+#         print('Самолет взлетел!')
+#
+#     def takedown(self):
+#         print('Самолет приземлился!')
+#
+#     def change_height(self,height:int):
+#         self.height = height
+#         print(f'Самолет поднялся на {self.height} км')
+#
+#     def change_speed(self,speed:float):
+#         self.speed = speed
+#         print(f'Скорость самолета {self.speed} км/ч')
+#
+#
+# manufacturer = input('Введите производителя: ')
+# model = input('Введите модель: ')
+# capacity = input('Введите вместимость самолета: ')
+#
+# airplane = PassengerPlane(manufacturer, model, capacity)
+#
+# while True:
+#     chs = int(input('Введите цифру для продолжения:'
+#                     '\n[1]Информация о самолете'
+#                     '\n[2]Взлететь'
+#                     '\n[3]Посадить самолет'
+#                     '\n[4]Выход'
+#                     '\n>>> '))
+#     if chs == 1:
+#         airplane.info()
+#     elif chs == 2:
+#         print('Для того чтобы самолет взлетел нужно набрать скорость и высоту')
+#         speed = float(input('Введите скорость самолета: '))
+#         hght = int(input('Введите высоту: '))
+#         airplane.takeoff()
+#         airplane.change_height(hght)
+#         airplane.change_speed(speed)
+#     elif chs == 3:
+#         if airplane.speed != 0 and airplane.height != 0:
+#             print('Для того,чтобы посадить самолет нужно снизить скорость и высоту до нуля')
+#             speed = float(input('Введите скорость самолета: '))
+#             hght = int(input('Введите высоту'))
+#             if speed == 0 and hght == 0:
+#                 airplane.takedown()
+#         else:
+#             print('Самолет и так не летит')
+#===============================================================================================
+#Task_4
+
+class MusicAlbum():
+    def __init__(self, artist, album_title, genre):
+        self.artist = artist
+        self.album_title = album_title
+        self.genre = genre
+        self.track_list = []
 
     def info(self):
         print(f"""
-                Производитель: {self.manufacturer}
-                Модель самолета: {self.model}
-                Вместимость самолета: {self.capacity}
-        """)
+                Исполнитель: {self.artist}
+                Название альбома: {self.album_title}
+                Жанр: {self.genre}
+                Список произведений: {self.track_list}
+                """)
 
-    def takeoff(self):
-        print('Самолет взлетел!')
+    def add_track(self, track:str):
+        self.track_list.append(track)
+        print(f'Вы добавили {track} в список произведений данного исполнителя')
+        print(f'Теперь список состоит из {self.track_list}')
 
-    def takedown(self):
-        print('Самолет приземлился!')
-
-    def change_height(self,height):
-        self.height = height
-        print(f'Самолет поднялся на {self.height} км')
-
-    def change_speed(self,speed):
-        self.speed = speed
-        print(f'Скорость самолета {self.speed} км/ч')
+    def delete_track(self,track:str):
+        self.track_list.remove(track)
+        print(f'Вы удалили {track} из списка произведений данного исполнителя')
+        print(f'Теперь список состоит из {self.track_list}')
 
 
-manufacturer = input('Введите производителя: ')
-model = input('Введите модель: ')
-capacity = input('Введите вместимость самолета: ')
 
-airplane = PassengerPlane(manufacturer, model, capacity)
+
+artist = input('Введите исполнителя: ')
+title = input('Введите альбом: ')
+genre = input('Введите жанр: ')
+
+music = MusicAlbum(artist, title, genre)
 
 while True:
     chs = int(input('Введите цифру для продолжения:'
-                    '\n[1]Информация о самолете'
-                    '\n[2]Взлететь'
-                    '\n[3]Посадить самолет'
+                    '\n[1]Информация музыкальном альбоме'
+                    '\n[2]Добавить трек'
+                    '\n[3]Удалить трек'
+                    '\n[4]Воспроизвести трек'
                     '\n[4]Выход'
                     '\n>>> '))
     if chs == 1:
-        airplane.info()
-    elif chs == 2:
-        print('Для того чтобы самолет взлетел нужно набрать скорость и высоту')
-        speed = float(input('Введите скорость самолета: '))
-        hght = int(input('Введите высоту: '))
-        airplane.takeoff()
-        airplane.change_height(hght)
-        airplane.change_speed(speed)
-    elif chs == 3:
-        if airplane.speed != 0 and airplane.height != 0:
-            print('Для того,чтобы посадить самолет нужно снизить скорость и высоту до нуля')
-            speed = float(input('Введите скорость самолета: '))
-            hght = int(input('Введите высоту'))
-            if speed == 0 and hght == 0:
-                airplane.takedown()
+        music.info()
+    if chs == 2:
+        name = input('Введите название трека,который нужно добавить: ')
+        music.add_track(name)
+    if chs == 3:
+        name = input('Введите название трека,который нужно удалить: ')
+        if name in music.track_list:
+            music.delete_track(name)
         else:
-            print('Самолет и так не летит')
+            print('Такого трека тут и нет')
+
 
 
 
