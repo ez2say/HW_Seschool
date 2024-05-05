@@ -1,3 +1,5 @@
+import time
+
 #Task_1
 # class Animal():
 #     def __init__(self,name,species,age):
@@ -183,6 +185,14 @@ class MusicAlbum():
         print(f'Теперь список состоит из {self.track_list}')
 
 
+    def play(self,track:str):
+        if track in self.track_list:
+            print(f'Вы выбрали произведение {track} исполнителя {self.artist}')
+            print(f'дждждж--оууууууууууууооаоаа-звуки_воспроизведения----пшш'
+                f'\nвжж---играет трек {track}--вжжжж')
+        else:
+            print('Трек не найден')
+
 
 
 artist = input('Введите исполнителя: ')
@@ -197,7 +207,7 @@ while True:
                     '\n[2]Добавить трек'
                     '\n[3]Удалить трек'
                     '\n[4]Воспроизвести трек'
-                    '\n[4]Выход'
+                    '\n[5]Выход'
                     '\n>>> '))
     if chs == 1:
         music.info()
@@ -210,6 +220,13 @@ while True:
             music.delete_track(name)
         else:
             print('Такого трека тут и нет')
+    if chs == 4:
+        name = input('Введите трек для воспроизведения: '
+                     f'\nCписок треков({music.track_list})'
+                     f'\n>>>')
+        music.play(name)
+    if chs == 5:
+        break
 
 
 
