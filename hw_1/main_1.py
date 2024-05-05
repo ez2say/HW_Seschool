@@ -1,3 +1,4 @@
+#Task_1
 # class Animal():
 #     def __init__(self,name,species,age):
 #         self.name = name
@@ -44,49 +45,70 @@
 #         print('ЛИБО 1 ЛИБО 2 либо на худой конец 3')
 #         continue
 #====================================================================================================
-class Book():
-    def __init__(self, title, author,num_page):
-        self.title = title
-        self.author = author
-        self.num_page = num_page
+# #Task_2
+# class Book():
+#     def __init__(self, title, author,num_page):
+#         self.title = title
+#         self.author = author
+#         self.num_page = num_page
+#
+#     def open(self,page):
+#         if page <= self.num_page:
+#             print(f'Страница {page} открыта')
+#         else:
+#             print('В этой книге нет такой страницы')
+#
+#     def info(self):
+#         print(f"""
+#                 Название: {self.title}
+#                 Автор: {self.author}
+#                 Количество страниц: {self.num_page}
+#                 """)
+#
+#
+#
+# title = input('Введите название книги: ')
+# author = input('Введите автора книги: ')
+# num = int(input('Введите количество страниц: '))
+#
+# new_book = Book(title,author,num)
+#
+# while True:
+#     chs = int(input('Введите(цифру),что бы вы хотели сделать'
+#                     '\n[1]Открыть определенную страницу страницу'
+#                     '\n[2]Показать информацию о книге'
+#                     '\n[3]Выход '
+#                     '\n>>> '))
+#     while chs == 1:
+#         page = int(input('Введите номер страницы или 110011 для возврата в предыдущее меню:'))
+#         new_book.open(page)
+#         if page == 110011:
+#             break
+#     if chs == 2:
+#         new_book.info()
+#     elif chs == 3:
+#         print('Досвидули')
+#         break
+#     else:
+#         print('Нормально вводи')
+# ================================================================================================
+#Task_3
+class PassengerPlane():
+    def __init__(self, manufacturer, model, capacity,height=0,speed=0):
+        self.manufacturer = manufacturer
+        self.model = model
+        self.capacity = capacity
+        self.height = height
+        self.speed = speed
 
-    def open(self,page):
-        if page <= self.num_page:
-            print(f'Страница {page} открыта')
-        else:
-            print('В этой книге нет такой страницы')
+    def takeoff(self):
+        print('Самолет взлетел!')
 
-    def info(self):
-        print(f"""
-                Название: {self.title}
-                Автор: {self.author}
-                Количество страниц: {self.num_page}                
-                """)
+    def takedown(self):
+        print('Самолет приземлился!')
 
+    def change_height(self,height):
+        self.height = height
+        f'Самолет поднялся на {self.height} км'
 
-
-title = input('Введите название книги: ')
-author = input('Введите автора книги: ')
-num = int(input('Введите количество страниц: '))
-
-new_book = Book(title,author,num)
-
-while True:
-    chs = int(input('Введите(цифру),что бы вы хотели сделать'
-                    '\n[1]Открыть определенную страницу страницу'
-                    '\n[2]Показать информацию о книге'
-                    '\n[3]Выход '
-                    '\n>>> '))
-    while chs == 1:
-        page = int(input('Введите номер страницы или 110011 для возврата в предыдущее меню:'))
-        new_book.open(page)
-        if page == 110011:
-            break
-    if chs == 2:
-        new_book.info()
-    elif chs == 3:
-        print('Досвидули')
-        break
-    else:
-        print('Нормально вводи')
 
