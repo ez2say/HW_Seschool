@@ -101,6 +101,13 @@ class PassengerPlane():
         self.height = height
         self.speed = speed
 
+    def info(self):
+        print(f"""
+                Производитель: {self.manufacturer}
+                Модель самолета: {self.model}
+                Вместимость самолета: {self.capacity}
+        """)
+
     def takeoff(self):
         print('Самолет взлетел!')
 
@@ -109,6 +116,44 @@ class PassengerPlane():
 
     def change_height(self,height):
         self.height = height
-        f'Самолет поднялся на {self.height} км'
+        print(f'Самолет поднялся на {self.height} км')
+
+    def change_speed(self,speed):
+        self.speed = speed
+        print(f'Скорость самолета {self.speed} км/ч')
+
+
+manufacturer = input('Введите производителя: ')
+model = input('Введите модель: ')
+capacity = input('Введите вместимость самолета: ')
+
+airplane = PassengerPlane(manufacturer, model, capacity)
+
+while True:
+    chs = int(input('Введите цифру для продолжения:'
+                    '\n[1]Информация о самолете'
+                    '\n[2]Взлететь'
+                    '\n[3]Посадить самолет'
+                    '\n[4]Выход'
+                    '\n>>> '))
+    if chs == 1:
+        airplane.info()
+    elif chs == 2:
+        print('Для того чтобы самолет взлетел нужно набрать скорость и высоту')
+        speed = float(input('Введите скорость самолета: '))
+        hght = int(input('Введите высоту: '))
+        airplane.takeoff()
+        airplane.change_height(hght)
+        airplane.change_speed(speed)
+    elif chs == 3:
+        if airplane.speed != 0 and airplane.height != 0:
+            print('Для того,чтобы посадить самолет нужно снизить скорость и высоту до нуля')
+            speed = float(input('Введите скорость самолета: '))
+            hght = int(input('Введите высоту'))
+            if speed == 0 and hght == 0:
+                airplane.takedown()
+        else:
+            print('Самолет и так не летит')
+
 
 
