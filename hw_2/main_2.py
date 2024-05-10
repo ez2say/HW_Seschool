@@ -267,7 +267,7 @@ class ArrayUtils:
         return min
 
 class Vector:
-    def __init__(self, x, y, z):
+    def __init__(self, x:float, y:float, z:float):
         """
 
         :param x: Принимает координату х
@@ -348,6 +348,63 @@ class Vector:
         :return: Возвращает норму(длину) вектора
         """
         return (self.x**2 + self.y**2 + self.z**2)**0.5
+
+class Fraction:
+
+    def __init__(self,numerator:int, denominator:int):
+        if denominator == 0:
+            raise ValueError("Знаменатель не может быть нулевым")
+        self.numerator = numerator
+        self.denominator = denominator
+
+    def __add__(self, other):
+        """
+
+        :param other:Принимает числитель и знаменатель в виде целой дроби (other)
+        :return: Сумму дробей
+        """
+        if isinstance(other, Fraction):
+            new_numerator = self.numerator * other.denominator + self.denominator * other.numerator
+            new_denominator = self.denominator * other.denominator
+            return Fraction(new_numerator, new_denominator)
+        else:
+            return self + Fraction(other, 1)
+
+    def __sub__(self, other):
+        """
+
+        :param other: Принимает числитель и знаменатель в виде целой дроби (other)
+        :return: Возвращает разность дробей
+        """
+        if isinstance(other, Fraction):
+            new_numerator = self.numerator * other.denominator - self.denominator * other.numerator
+            new_denominator = self.denominator * other.denominator
+            return Fraction(new_numerator, new_denominator)
+        else:
+            return self - Fraction(other, 1)
+
+    def __mul__(self, other):
+        """
+
+        :param other: Принимает числитель и знаменатель в виде целой дроби (other)
+        :return: Возвращает произведение дробей
+        """
+        if isinstance(other, Fraction):
+            new_numerator = self.numerator * other.numerator
+            new_denominator = self.denominator * other.denominator
+            return Fraction(new_numerator, new_denominator)
+        else:
+            return self * Fraction(other, 1)
+
+    def __str__(self):
+        """
+
+        :return: Возвращает значения числителя и знаменателя текущей дроби
+        """
+        if self.denominator == 1:
+            return str(self.numerator)
+        return f"{self.numerator}/{self.denominator}"
+
 
 
 
@@ -483,6 +540,74 @@ class Program:
         #         break
 ############################################################Конец_задания_4#############################################
 ############################################################Задание_5###################################################
+        # x1 = float(input('Введите координату х первого вектора: '))
+        # y1 = float(input('Введите координату y первого вектора: '))
+        # z1 = float(input('Введите координату z первого вектора: '))
+        #
+        # x2 = float(input('Введите координату х второго вектора: '))
+        # y2 = float(input('Введите координату y второго вектора: '))
+        # z2 = float(input('Введите координату z второго вектора: '))
+        #
+        # vec1 = Vector(x1, y1, z1)
+        # vec2 = Vector(x2, y2, z2)
+        #
+        # while True:
+        #
+        #     chs = int(input('Введите цифру для продолжения:'
+        #                     '\n[1]Информация о векторах '
+        #                     '\n[2]Cумма векторов '
+        #                     '\n[3]Разность векторов'
+        #                     '\n[4]Скалярное произведение векторов '
+        #                     '\n[5]Векторное произведение'
+        #                     '\n[6]Норма(длина)вектора'
+        #                     '\n[7]Выход'
+        #                     '\n>>> '))
+        #     if chs == 1:
+        #         print(vec1)
+        #         print(vec2)
+        #     elif chs == 2:
+        #         print(vec1 + vec2)
+        #     elif chs == 3:
+        #         print(vec1 - vec2)
+        #     elif chs == 4:
+        #         print(vec1.dot_product(vec2))
+        #     elif chs == 5:
+        #         print(vec1.cross_product(vec2))
+        #     elif chs == 6:
+        #         print(vec1.norm())
+        #         print(vec2.norm())
+        #     elif chs == 7:
+        #         break
+###########################################################Конец_задания_5#############################################
+##########################################################Задание_6####################################################
+        # chs1 = int(input('Введите числитель первой дроби: '))
+        # znm1 = int(input('Введите знаменатель первой дроби(он не может быть равен нулю): '))
+        #
+        # chs2 = int(input('Введите числитель второй дроби: '))
+        # znm2 = int(input('Введите знаменатель второй дроби(он не может быть равен нулю): '))
+        #
+        # drob_1 = Fraction(chs1, znm1)
+        # drob_2 = Fraction(chs2, znm2)
+        #
+        # while True:
+        #     chs = int(input('Введите цифру для продолжения:'
+        #                     '\n[1]Информация дробях '
+        #                     '\n[2]Cумма дробей '
+        #                     '\n[3]Разность дробей'
+        #                     '\n[4]Произведение дробей'
+        #                     '\n[5]Выход'
+        #                     '\n>>> '))
+        #     if chs == 1:
+        #         print(drob_1)
+        #         print(drob_2)
+        #     elif chs == 2:
+        #         print(drob_1 + drob_2)
+        #     elif chs == 3:
+        #         print(drob_1 - drob_2)
+        #     elif chs == 4:
+        #         print(drob_1 * drob_2)
+        #     elif chs == 5:
+        #         break
 
 
 
