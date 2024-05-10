@@ -1,3 +1,4 @@
+import math
 class Patient:
     """
     По классу Patient можно создавать объект(пациент). В котором будет описано его ФИО,Болезнь. И благодаря методам,
@@ -405,9 +406,69 @@ class Fraction:
             return str(self.numerator)
         return f"{self.numerator}/{self.denominator}"
 
+class GeometryUtils:
 
+    @staticmethod
+    def calculate_circle_area(circle_radius: float):
+        """
+        Метод для расчета площади круга с помощью радиуса
+        :param circle_radius: Принимает радиус круга как аргумент
+        :return: Возвращает площадь круга
+        """
+        area_of_circle = math.pi * (circle_radius ** 2)
 
+        return area_of_circle
 
+    @staticmethod
+    def calculate_circle_perimeter(circle_radius: float):
+        """
+        Метод для расчета периметра круга с помощью радиуса
+        :param circle_radius: Принимает радиус круга как аргумент
+        :return: Возвращает периметр круга
+        """
+        perimeter_of_circle = (2 * math.pi) * circle_radius
+
+        return perimeter_of_circle
+
+    @staticmethod
+    def calculate_rectangle_area(length: float, width: float):
+        """
+
+        :param length: Принимает длину прямоугольника как аргумент
+        :param width: Принимает ширину треугольника как аргумент
+        :return: Возвращает площадь прямоугольника
+        """
+        area_of_rectangle = length * width
+
+        return area_of_rectangle
+
+    @staticmethod
+    def calculate_rectangle_perimeter(length: float, width: float):
+        """
+
+        :param length: Принимает длину прямоуголника как аргумент
+        :param width: Принимает ширину прямоугольника как аргумент
+        :return: Возвращает Периметр прямоугольника
+        """
+        perimeter_of_rectangle = 2 * (length + width)
+
+        return perimeter_of_rectangle
+
+    @staticmethod
+    def Heron_area_formula_for_triangle(a: float, b: float, c: float):
+        """
+
+        :param a:Принимает сторону А треугольника как аргумент
+        :param b:Принимает сторону B треугольника как аргумент
+        :param c:Принимает сторону C треугольника как аргумент
+        :return: возвращает площадь треугольника ,расчитанную с помощью формулы Херона(че!? ,а что ,так нельзя
+        посчитать,без Херонов всяких?)
+        """
+        half_of_perimetr = 0.5 * (a + b + c)
+
+        area_of_triangle = (half_of_perimetr * (half_of_perimetr - a) * (half_of_perimetr - b) * (half_of_perimetr - c)) ** 0.5
+
+        return area_of_triangle
 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -608,7 +669,44 @@ class Program:
         #         print(drob_1 * drob_2)
         #     elif chs == 5:
         #         break
-########################################################################
+#############################################################Конец_задания_6###########################################
+################################################################Задани_7###############################################
+        while True:
+            chs = int(input('Введите цифру для продолжения:'
+                            '\n[1]Рассчет площади круга '
+                            '\n[2]Рассчет периметра круга '
+                            '\n[3]Рассчет площади прямоугольника'
+                            '\n[4]Рассчет периметра прямоугольника'
+                            '\n[5]ПЛОЩАДЬ ХЕРОНА ТРЕУГОЛЬНИКА'
+                            '\n[6]Выход'
+                            '\n>>> '))
+            if chs == 1:
+                misha_krug = float(input('Введите радиус круга: '))
+                print(GeometryUtils.calculate_circle_area(misha_krug))
+            elif chs == 2:
+                misha_krug = float(input('Введите радиус круга: '))
+                print(GeometryUtils.calculate_circle_perimeter(misha_krug))
+            elif chs == 3:
+                dlina_pryamougol = float(input('Введите длину прямоугольника: '))
+                shirina_priamougol = float(input('Введите ширину прямоугольника: '))
+                print(GeometryUtils.calculate_rectangle_area(dlina_pryamougol, shirina_priamougol))
+            elif chs == 4:
+                dlina_pryamougol = float(input('Введите длину прямоугольника: '))
+                shirina_priamougol = float(input('Введите ширину прямоугольника: '))
+                print(GeometryUtils.calculate_rectangle_perimeter(dlina_pryamougol, shirina_priamougol))
+            elif chs == 5:
+                a = float(input('Введите длину стороны А треугольника: '))
+                b = float(input('Введите длину стороны B треугольника: '))
+                c = float(input('Введите длину стороны C треугольника: '))
+                print(GeometryUtils.Heron_area_formula_for_triangle(a, b, c))
+            elif chs == 6:
+                break
+
+
+
+
+        dlina_pryamougol = float(input('Введите радиус круга: '))
+        shirina_priamougol = float(input('Введите радиус круга: '))
 
 
 Program.main()
