@@ -703,12 +703,6 @@ class Program:
                 break
 
 
-
-
-        dlina_pryamougol = float(input('Введите радиус круга: '))
-        shirina_priamougol = float(input('Введите радиус круга: '))
-
-
 Program.main()
 
 
