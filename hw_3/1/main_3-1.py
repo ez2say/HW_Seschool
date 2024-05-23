@@ -207,6 +207,92 @@ class Employee:
                  Выполненные проекты: {', '.join(self.__completed_projects)}
                 """
 
+
+class Robot:
+#####################я три класса сделал с print в гетах,чет я как то не понимаю,а нужны ли они вообще))##########
+    def __init__(self, serial_number: str, model: str, current_task: str = None, battery_level: int = 100, state: str = "на перерыве"):
+        self.__serial_number = serial_number
+        self.__model = model
+        self.__current_task = current_task
+        self.__battery_level = battery_level
+        self.__state = state
+
+    def get_serial_number(self):
+        return self.__serial_number
+
+    def get_model(self):
+        return self.__model
+
+    def get_current_task(self):
+        return self.__current_task
+
+    def get_battery_level(self):
+        return self.__battery_level
+
+    def get_state(self):
+        return self.__state
+
+    def set_serial_number(self, serial_number: str):
+        if not isinstance(serial_number, str):
+            raise TypeError
+        else:
+            self.__serial_number = serial_number
+
+    def set_model(self, model: str):
+        if not isinstance(model, str):
+            raise TypeError
+        else:
+            self.__model = model
+
+    def set_current_task(self, current_task: str):
+        if not isinstance(current_task, str):
+            raise TypeError
+        else:
+            self.__current_task = current_task
+
+    def set_battery_level(self, battery_level: int):
+        if not isinstance(battery_level, int):
+            raise TypeError
+        else:
+            self.__battery_level = battery_level
+
+    def set_state(self, state: str):
+        if not isinstance(state, str):
+            raise TypeError
+        else:
+            self.__state = state
+
+    def assign_task(self, task: str):
+        self.__current_task = task
+        print(f"Роботу {self.__serial_number} назначена задача: {task}")
+
+    def change_battery_level(self, level: int):
+        self.__battery_level += level
+        print(f"Уровень заряда батареи робота {self.__serial_number} изменен на {level}. Текущий уровень: {self.__battery_level}%")
+
+    def start_working(self):
+        if self.__state == "на перерыве":
+            self.__state = "в работе"
+            print(f"Робот {self.__serial_number} приступил к работе.")
+        else:
+            print(f"Робот {self.__serial_number} уже в работе.")
+
+    def take_break(self):
+        if self.__state == "в работе":
+            self.__state = "на перерыве"
+            print(f"Робот {self.__serial_number} взял перерыв.")
+        else:
+            print(f"Робот {self.__serial_number} уже на перерыве.")
+
+    def __str__(self):
+        return f"""
+                 Серийный номер: {self.__serial_number}
+                 Модель: {self.__model}
+                 Текущая задача: {self.__current_task}
+                 Уровень заряда батареи: {self.__battery_level}%
+                 Состояние: {self.__state}
+                """
+
 class Program:
 
     @staticmethod
@@ -303,7 +389,25 @@ class Program:
         new_employeeee.increase_salary(mnogo_denyak)
 
 ###################################################КОНЕЦ_ЗАДАНИЯ 2######################################################
-###################################################ЗАДАНИЕ 3###########################################################
+###################################################ЗАДАНИЕ 3############################################################
+
+        robot = Robot('TM102', '404')
+
+        print(robot)
+
+        robot.assign_task('Запокемонить вон ту штуку')
+
+        robot.change_battery_level(-20)
+
+        robot.start_working()
+
+        print(robot)
+
+        robot.take_break()
+####################################################КОНЕЦ_ЗАДАНИЯ 3#####################################################
+###################################################ЗАДАНИЕ 4############################################################
+
+
 
 
 
