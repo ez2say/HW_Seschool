@@ -94,13 +94,13 @@ class Wizard:
         self.__status = status
         print(f'Статус изменен на: {self.__status}')
 
-    def add_spell(self, spell):
+    def add_spell(self, spell: Spell):
         self.__spellbook.append(spell)
-        print(f'Заклинание {spell.__name} добавлено')
+        print(f'Заклинание {spell} добавлено')
 
-    def remove_spell(self, spell):
+    def remove_spell(self, spell: Spell):
         self.__spellbook.remove(spell)
-        print(f'Заклинание {spell.__name} удалено из списка заклинаний.')
+        print(f'Заклинание {spell} удалено из списка заклинаний.')
 
     def increase_spellforce(self, amount:int):
         if not isinstance(amount, int):
@@ -293,6 +293,85 @@ class Robot:
                  Состояние: {self.__state}
                 """
 
+
+class Achievement:
+    def __init__(self, competition: str, year: int, result: str):
+        self.competition = competition
+        self.year = year
+        self.result = result
+
+    def __str__(self):
+        return f"{self.competition} ({self.year}): {self.result}"
+
+
+class Athlete:
+    def __init__(self, name: str, age: int, sport: str, achievements: list = [], status: str = "активен"):
+        self.__name = name
+        self.__age = age
+        self.__sport = sport
+        self.__achievements = achievements
+        self.__status = status
+
+    def get_name(self):
+        return self.__name
+
+    def get_age(self):
+        return self.__age
+
+    def get_sport(self):
+        return self.__sport
+
+    def get_achievements(self):
+        return self.__achievements
+
+    def get_status(self):
+        return self.__status
+
+    def set_name(self, name: str):
+        if not isinstance(name, str):
+            raise TypeError
+        else:
+            self.__name = name
+
+    def set_age(self, age: int):
+        if not isinstance(age, int):
+            raise TypeError
+        else:
+            self.__age = age
+
+    def set_sport(self, sport: str):
+        if not isinstance(sport, str):
+            raise TypeError
+        else:
+            self.__sport = sport
+
+    def set_status(self, status: str):
+        if not isinstance(status, str):
+            raise TypeError
+        else:
+            self.__status = status
+
+    def add_achievement(self, achievement: Achievement):
+        self.__achievements.append(achievement)
+        print(f"Достижение '{achievement.competition}' добавлено в список атлета '{self.__name}'.")
+
+    def remove_achievement(self, achievement: Achievement):
+        if achievement in self.__achievements:
+            self.__achievements.remove(achievement)
+            print(f"Достижение '{achievement.competition}' удалено из списка атлета '{self.__name}'.")
+        else:
+            print(f"Достижение '{achievement.competition}' отсутствует в списке атлета '{self.__name}'.")
+
+    def __str__(self):
+        achievement_str = "\n".join(str(achievement) for achievement in self.__achievements)
+        return f"""
+                 Имя: {self.__name}
+                 Возраст: {self.__age}
+                 Вид спорта: {self.__sport}
+                 Достижения:\n{achievement_str if achievement_str else 'Нет достижений'}
+                 Статус: {self.__status}
+                """
+
 class Program:
 
     @staticmethod
@@ -407,6 +486,18 @@ class Program:
 ####################################################КОНЕЦ_ЗАДАНИЯ 3#####################################################
 ###################################################ЗАДАНИЕ 4############################################################
 
+        achivka = Achievement("Чемпионат нижних Сатанинок", 2022, "Золотая медаль")
+        kachok_nosok = Athlete("ВсеТотЖе Никитос", 25, "Водное поло", [achivka])
+
+        print(kachok_nosok)
+
+        achivka2 = Achievement("Паралимпийские игры", 2024, "Шоколадная медаль")
+
+        kachok_nosok.add_achievement(achivka2)
+
+        kachok_nosok.remove_achievement(achivka2)
+
+        print(kachok_nosok)
 
 
 
