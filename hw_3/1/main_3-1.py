@@ -432,72 +432,72 @@ class Program:
 ###########################################ЗЛОЕ_КОЛДУНСТВО ЗАКОНЧИЛОСЬ##################################################
 ##################################################ЗАДАНИЕ 2#############################################################
 
-        new_employeeee = Employee('Никитос Пылесос', 'fullstack-junior-developer', 'Батальон белые носки', 80000.00, 1, [])
-        project = 'Похоронные qr-коды'
-
-###################GET_методы объекта класса EMPLOYEER##################################################################
-
-        new_employeeee.get_name()
-        new_employeeee.get_salary()
-        new_employeeee.get_position()
-        new_employeeee.get_department()
-        new_employeeee.get_experience()
-        new_employeeee.get_completed_projects()
-
-###################SET_методы объекта класса EMPLOYEER##################################################################
-
-
-        print(new_employeeee)
-        name = 'Никитос Антипос'
-        new_employeeee.set_name(name)
-        zarplata = 60000.01
-        new_employeeee.set_salary(zarplata)
-        pos = 'Тыжпрограмист'
-        new_employeeee.set_position(pos)
-        exp = 3
-        new_employeeee.set_experience(exp)
-        dep = 'Темная сторона серверной комнаты'
-        new_employeeee.set_department(dep)
-        print(new_employeeee)
-
-##################OTHER_методы объекта класса EMPLOYEER#################################################################
-
-        new_employeeee.add_project(project)
-        new_employeeee.remove_project(project)
-        mnogo_denyak = 3000
-        new_employeeee.increase_salary(mnogo_denyak)
-
-###################################################КОНЕЦ_ЗАДАНИЯ 2######################################################
-###################################################ЗАДАНИЕ 3############################################################
-
-        robot = Robot('TM102', '404')
-
-        print(robot)
-
-        robot.assign_task('Запокемонить вон ту штуку')
-
-        robot.change_battery_level(-20)
-
-        robot.start_working()
-
-        print(robot)
-
-        robot.take_break()
-####################################################КОНЕЦ_ЗАДАНИЯ 3#####################################################
-###################################################ЗАДАНИЕ 4############################################################
-
-        achivka = Achievement("Чемпионат нижних Сатанинок", 2022, "Золотая медаль")
-        kachok_nosok = Athlete("ВсеТотЖе Никитос", 25, "Водное поло", [achivka])
-
-        print(kachok_nosok)
-
-        achivka2 = Achievement("Паралимпийские игры", 2024, "Шоколадная медаль")
-
-        kachok_nosok.add_achievement(achivka2)
-
-        kachok_nosok.remove_achievement(achivka2)
-
-        print(kachok_nosok)
+#         new_employeeee = Employee('Никитос Пылесос', 'fullstack-junior-developer', 'Батальон белые носки', 80000.00, 1, [])
+#         project = 'Похоронные qr-коды'
+#
+# ###################GET_методы объекта класса EMPLOYEER##################################################################
+#
+#         new_employeeee.get_name()
+#         new_employeeee.get_salary()
+#         new_employeeee.get_position()
+#         new_employeeee.get_department()
+#         new_employeeee.get_experience()
+#         new_employeeee.get_completed_projects()
+#
+# ###################SET_методы объекта класса EMPLOYEER##################################################################
+#
+#
+#         print(new_employeeee)
+#         name = 'Никитос Антипос'
+#         new_employeeee.set_name(name)
+#         zarplata = 60000.01
+#         new_employeeee.set_salary(zarplata)
+#         pos = 'Тыжпрограмист'
+#         new_employeeee.set_position(pos)
+#         exp = 3
+#         new_employeeee.set_experience(exp)
+#         dep = 'Темная сторона серверной комнаты'
+#         new_employeeee.set_department(dep)
+#         print(new_employeeee)
+#
+# ##################OTHER_методы объекта класса EMPLOYEER#################################################################
+#
+#         new_employeeee.add_project(project)
+#         new_employeeee.remove_project(project)
+#         mnogo_denyak = 3000
+#         new_employeeee.increase_salary(mnogo_denyak)
+#
+# ###################################################КОНЕЦ_ЗАДАНИЯ 2######################################################
+# ###################################################ЗАДАНИЕ 3############################################################
+#
+#         robot = Robot('TM102', '404')
+#
+#         print(robot)
+#
+#         robot.assign_task('Запокемонить вон ту штуку')
+#
+#         robot.change_battery_level(-20)
+#
+#         robot.start_working()
+#
+#         print(robot)
+#
+#         robot.take_break()
+# ####################################################КОНЕЦ_ЗАДАНИЯ 3#####################################################
+# ###################################################ЗАДАНИЕ 4############################################################
+#
+#         achivka = Achievement("Чемпионат нижних Сатанинок", 2022, "Золотая медаль")
+#         kachok_nosok = Athlete("ВсеТотЖе Никитос", 25, "Водное поло", [achivka])
+#
+#         print(kachok_nosok)
+#
+#         achivka2 = Achievement("Паралимпийские игры", 2024, "Шоколадная медаль")
+#
+#         kachok_nosok.add_achievement(achivka2)
+#
+#         kachok_nosok.remove_achievement(achivka2)
+#
+#         print(kachok_nosok)
 
 
 
